@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import schema from "./graphql/schema";
-import resolvers from "./graphql/resolvers/resolvers"
+import resolvers from "./graphql/resolvers/root";
 import express from "express";
 import http from "http";
 
@@ -11,7 +11,7 @@ async function startApolloServer(schema: any, resolvers: any) {
   const httpServer = http.createServer(app);
 
   const server = new ApolloServer({
-    schema,
+    typeDefs:schema,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
