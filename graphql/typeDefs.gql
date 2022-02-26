@@ -1,5 +1,5 @@
 type User {
-  id: Int,
+  users_id: Int,
   name: String
 }
 
