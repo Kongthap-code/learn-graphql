@@ -7,18 +7,7 @@ export const Query: Resolver = {
 }
 
 export const Mutation: Resolver = {
-  login() {
-    return user
-  }
-}
-
-const user = [
-  {
-    id: 1,
-    name: 'Kongthap Phuengsang',
+  register(_, args, ctx) {
+    return ctx.dataSources.prisma.createUser(args);
   },
-  {
-    id: 2,
-    name: 'Thanawat Yodnil',
-  }
-];
+}

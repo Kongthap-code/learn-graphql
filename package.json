@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node index.ts",
+    "start": "ts-node --require dotenv/config index.ts",
     "prebuild": "npx prisma migrate deploy",
     "build": "docker build -t learn-graphql ."
   },
@@ -18,10 +18,13 @@
     "apollo-server-core": "^3.5.0",
     "apollo-server-express": "^3.5.0",
     "apollo-server-micro": "^3.6.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "graphql": "^15.8.0",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
