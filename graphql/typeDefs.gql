@@ -12,4 +12,5 @@ type Query {
 
 type Mutation {
   register(username: String!,password: String!,name: String!): JWT!
+  login(username: String!,password: String!): JWT!
 }

@@ -10,4 +10,7 @@ export const Mutation: Resolver = {
   register(_, args, ctx) {
     return ctx.dataSources.prisma.createUser(args);
   },
+  login(_, args, ctx){
+    return ctx.dataSources.prisma.login(args);
+  },
 }

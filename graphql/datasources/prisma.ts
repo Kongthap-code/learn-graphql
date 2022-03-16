@@ -38,6 +38,18 @@ class PrismaDataSource extends DataSource {
         return signJWT(user.user_id);
     }
 
+    async login(args) {
+        const user = await this.prisma.user.findUnique({
+            where: {username: args.username},
+        })
+        if(!user) return new AuthenticationError("no user with username given found")
+
+        if(!bcrypt.compareSync(args.password,user.password))
+            return new AuthenticationError("password error");
+        
+        return signJWT(user.user_id);
+    }
+
 }
 
 export default PrismaDataSource;
